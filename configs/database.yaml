@@ -1,0 +1,15 @@
+database:
+  host: localhost
+  port: 3306
+  user: stock_ml_user
+  password: ${MYSQL_PASSWORD}  # Read from environment variable
+  database: stock_ml_platform
+  
+  # Connection pool settings
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+  pool_recycle: 3600
+  
+  # Logging
+  echo: false  # Set to true for SQL query logging

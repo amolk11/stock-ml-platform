@@ -74,7 +74,7 @@ mlruns/
 
 .dvc/cache/
 .dvc/tmp/
-*.dvc
+!.dvc
 
 # ===============================
 
@@ -133,3 +133,4 @@ htmlcov/
 
 # Jupyter
 .ipynb_checkpoints/
+/data

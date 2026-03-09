@@ -1,0 +1,22 @@
+api_sources:
+  yahoo_finance:
+    enabled: true
+    name: "Yahoo Finance"
+    rate_limit: 2000  # requests per hour
+    timeout: 30
+  
+  alpha_vantage:
+    enabled: true
+    name: "Alpha Vantage"
+    base_url: "https://www.alphavantage.co/query"
+    api_key: ${ALPHA_VANTAGE_API_KEY}  # From environment
+    rate_limit: 5  # requests per minute (free tier)
+    timeout: 30
+  
+  polygon:
+    enabled: false
+    name: "Polygon.io"
+    base_url: "https://api.polygon.io"
+    api_key: ${POLYGON_API_KEY}
+    rate_limit: 5
+    timeout: 30

@@ -1,0 +1,35 @@
+data_ingestion:
+  # Data sources to use
+  sources:
+    - yahoo_finance
+    - alpha_vantage
+  
+  # Tickers to track
+  tickers:
+    - AAPL
+    - MSFT
+    - GOOGL
+    - AMZN
+    - TSLA
+    - NVDA
+    - META
+    - JPM
+    - V
+    - WMT
+  
+  # Data collection settings
+  collection:
+    frequency: daily  # daily, hourly, minute
+    lookback_days: 5  # Historical days to fetch on initial run
+    batch_size: 10    # Process N tickers at a time
+  
+  # Data quality thresholds
+  quality:
+    min_quality_score: 0.8
+    max_null_ratio: 0.1
+  
+  # Rate limiting
+  rate_limiting:
+    requests_per_minute: 5
+    retry_attempts: 3
+    retry_delay: 5  # seconds

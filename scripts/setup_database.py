@@ -73,6 +73,7 @@ def main():
         
         # Load configuration
         config = load_config("configs/database.yaml")
+        print(config)
         
         # Step 1: Create database
         create_database_if_not_exists(config)

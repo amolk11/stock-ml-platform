@@ -1,0 +1,53 @@
+feature_engineering:
+  # Feature version (increment when changing feature logic)
+  version: "v1.0"
+  
+  # Which feature groups to compute
+  feature_groups:
+    - technical_indicators
+    - price_features
+    - volume_features
+    - temporal_features
+  
+  # Technical Indicators Configuration
+  technical_indicators:
+    # Moving Averages
+    sma_periods: [5, 10, 20, 50, 200]
+    ema_periods: [12, 26]
+    
+    # Momentum Indicators
+    rsi:
+      period: 14
+    
+    macd:
+      fast_period: 12
+      slow_period: 26
+      signal_period: 9
+    
+    # Volatility Indicators
+    bollinger_bands:
+      period: 20
+      std_dev: 2
+    
+    atr:
+      period: 14
+  
+  # Price Features
+  price_features:
+    returns_periods: [1, 5, 20]  # 1-day, 1-week, 1-month returns
+    volatility_periods: [20, 60]  # Rolling volatility windows
+  
+  # Volume Features
+  volume_features:
+    volume_sma_periods: [20]
+    obv: true  # On-Balance Volume
+  
+  # Data requirements
+  data:
+    min_history_days: 200  # Need 200 days for SMA-200
+    batch_size: 1000  # Process N records at a time
+  
+  # Storage
+  storage:
+    deduplicate: true  # Remove duplicates before inserting
+    update_existing: false  # Whether to update existing features

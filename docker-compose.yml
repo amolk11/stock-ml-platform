@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  mysql-stockml:
+    image: mysql:8
+    container_name: mysql-stockml
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: stock_ml_platform
+      MYSQL_USER: stock_ml_user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
